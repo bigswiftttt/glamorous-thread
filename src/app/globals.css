@@ -1,10 +1,20 @@
-@import "tailwindcss";
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
 
-:root {
-  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
-  --font-jost: 'Jost', system-ui, sans-serif;
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #C6A85A;
+  --color-gold-light: #E6D3A3;
+  --color-gold-dark: #A8893A;
+  --color-cream: #FAF8F3;
+  --color-ink: #0B0B0B;
+  --color-text: #111111;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Jost', system-ui, sans-serif;
+
+  --tracking-widest: 0.25em;
+  --tracking-extra-wide: 0.15em;
 }
 
 * {
@@ -20,11 +30,10 @@ html {
 body {
   background-color: #FAF8F3;
   color: #111111;
-  font-family: var(--font-jost);
+  font-family: 'Jost', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Luxury scrollbar */
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -37,7 +46,6 @@ body {
   background: #C6A85A;
 }
 
-/* Selection color */
 ::selection {
   background: #C6A85A;
   color: #0B0B0B;
