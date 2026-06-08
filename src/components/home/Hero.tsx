@@ -16,126 +16,91 @@ export default function Hero() {
             className="relative min-h-screen flex flex-col justify-center overflow-hidden"
             style={{ backgroundColor: '#0B0B0B' }}
         >
-            {/* Gold accent line left */}
+            {/* Gold accent line */}
             <div
                 className="absolute left-0 top-0 bottom-0 w-px"
-                style={{
-                    background: 'linear-gradient(to bottom, transparent, rgba(198,168,90,0.4), transparent)'
-                }}
+                style={{ background: 'linear-gradient(to bottom, transparent, rgba(198,168,90,0.4), transparent)' }}
             />
 
-            {/* Main content */}
-            <div className="relative z-10 max-w-7xl mx-auto w-full px-8 md:px-16 pt-36 pb-24">
-                <div className="max-w-4xl">
+            {/* Content */}
+            <div className="relative z-10 section-inner px-6 md:px-8 pt-32 pb-20">
 
-                    {/* Eyebrow */}
-                    <div
-                        className="flex items-center gap-4 mb-10"
-                        style={{
-                            opacity: loaded ? 1 : 0,
-                            transform: loaded ? 'translateY(0)' : 'translateY(16px)',
-                            transition: 'all 1s ease',
-                        }}
-                    >
-                        <div className="w-12 h-px" style={{ backgroundColor: '#C6A85A' }} />
-                        <span
-                            className="font-sans text-xs uppercase"
-                            style={{ letterSpacing: '0.25em', color: '#C6A85A' }}
-                        >
-                            Luxury Bespoke Fashion
-                        </span>
-                    </div>
-
-                    {/* Headline */}
-                    <div
-                        style={{
-                            opacity: loaded ? 1 : 0,
-                            transform: loaded ? 'translateY(0)' : 'translateY(24px)',
-                            transition: 'all 1s ease 0.2s',
-                        }}
-                    >
-                        <h1 className="font-serif font-light leading-none" style={{ color: '#FAF8F3' }}>
-                            <span className="block text-6xl md:text-7xl lg:text-8xl">
-                                Luxury Fashion
-                            </span>
-                            <span className="block text-6xl md:text-7xl lg:text-8xl mt-2">
-                                Tailored To
-                            </span>
-                            <span
-                                className="block text-6xl md:text-7xl lg:text-8xl mt-2 italic"
-                                style={{ color: '#C6A85A' }}
-                            >
-                                Your Identity
-                            </span>
-                        </h1>
-                    </div>
-
-                    {/* Subtext */}
-                    <div
-                        style={{
-                            opacity: loaded ? 1 : 0,
-                            transform: loaded ? 'translateY(0)' : 'translateY(16px)',
-                            transition: 'all 1s ease 0.35s',
-                        }}
-                    >
-                        <p
-                            className="mt-8 font-sans text-sm uppercase leading-loose max-w-md"
-                            style={{ letterSpacing: '0.15em', color: 'rgba(250,248,243,0.5)' }}
-                        >
-                            Bridal Couture · Native Wear · Bespoke Fashion
-                            <br />
-                            Corporate · Event · Custom Designs
-                        </p>
-                    </div>
-
-                    {/* CTA Buttons */}
-                    <div
-                        className="flex flex-col sm:flex-row gap-4 mt-12"
-                        style={{
-                            opacity: loaded ? 1 : 0,
-                            transform: loaded ? 'translateY(0)' : 'translateY(16px)',
-                            transition: 'all 1s ease 0.5s',
-                        }}
-                    >
-                        <Link
-                            href="/book"
-                            className="inline-flex items-center justify-center gap-3 font-sans text-xs uppercase group"
-                            style={{
-                                letterSpacing: '0.2em',
-                                backgroundColor: '#C6A85A',
-                                color: '#0B0B0B',
-                                padding: '16px 40px',
-                            }}
-                        >
-                            Book Consultation
-                            <svg
-                                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </Link>
-
-                        <Link
-                            href="/collections"
-                            className="inline-flex items-center justify-center gap-3 font-sans text-xs uppercase"
-                            style={{
-                                letterSpacing: '0.2em',
-                                border: '1px solid rgba(250,248,243,0.2)',
-                                color: '#FAF8F3',
-                                padding: '16px 40px',
-                            }}
-                        >
-                            View Collections
-                        </Link>
-                    </div>
-
+                {/* Eyebrow */}
+                <div
+                    className="eyebrow"
+                    style={{
+                        opacity: loaded ? 1 : 0,
+                        transform: loaded ? 'translateY(0)' : 'translateY(16px)',
+                        transition: 'all 1s ease',
+                    }}
+                >
+                    <div className="gold-line" />
+                    <span className="text-label" style={{ color: '#C6A85A' }}>
+                        Luxury Bespoke Fashion
+                    </span>
                 </div>
+
+                {/* Headline */}
+                <div
+                    style={{
+                        opacity: loaded ? 1 : 0,
+                        transform: loaded ? 'translateY(0)' : 'translateY(24px)',
+                        transition: 'all 1s ease 0.2s',
+                    }}
+                >
+                    <h1 className="text-display" style={{ color: '#FAF8F3' }}>
+                        <span className="block">Luxury Fashion</span>
+                        <span className="block mt-1">Tailored To</span>
+                        <span className="block mt-1 italic" style={{ color: '#C6A85A' }}>
+                            Your Identity
+                        </span>
+                    </h1>
+                </div>
+
+                {/* Subtext */}
+                <div
+                    style={{
+                        opacity: loaded ? 1 : 0,
+                        transform: loaded ? 'translateY(0)' : 'translateY(16px)',
+                        transition: 'all 1s ease 0.35s',
+                    }}
+                >
+                    <p
+                        className="text-label mt-6"
+                        style={{ color: 'rgba(250,248,243,0.45)', lineHeight: 2 }}
+                    >
+                        Bridal Couture · Native Wear · Bespoke Fashion
+                        <br />
+                        Corporate · Event · Custom Designs
+                    </p>
+                </div>
+
+                {/* CTA Buttons */}
+                <div
+                    className="flex flex-col sm:flex-row gap-3 mt-10"
+                    style={{
+                        opacity: loaded ? 1 : 0,
+                        transform: loaded ? 'translateY(0)' : 'translateY(16px)',
+                        transition: 'all 1s ease 0.5s',
+                    }}
+                >
+                    <Link href="/book" className="btn-primary">
+                        Book Consultation
+                        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </Link>
+
+                    <Link href="/collections" className="btn-outline">
+                        View Collections
+                    </Link>
+                </div>
+
             </div>
 
-            {/* Tagline bottom center */}
+            {/* Tagline */}
             <div
-                className="absolute bottom-10 left-0 right-0 flex justify-center"
+                className="absolute bottom-8 left-0 right-0 flex justify-center"
                 style={{
                     opacity: loaded ? 1 : 0,
                     transition: 'all 1s ease 0.7s',
@@ -149,12 +114,11 @@ export default function Hero() {
                 </span>
             </div>
 
-            {/* Scroll indicator right */}
-            <div className="absolute bottom-10 right-10 flex flex-col items-center gap-2">
+            {/* Scroll indicator */}
+            <div className="absolute bottom-8 right-6 md:right-10 flex flex-col items-center gap-2">
                 <span
-                    className="font-sans text-xs uppercase"
+                    className="text-label"
                     style={{
-                        letterSpacing: '0.2em',
                         color: 'rgba(250,248,243,0.3)',
                         writingMode: 'vertical-lr',
                     }}
@@ -162,7 +126,7 @@ export default function Hero() {
                     Scroll
                 </span>
                 <div
-                    className="w-px h-12"
+                    className="w-px h-10"
                     style={{ background: 'linear-gradient(to bottom, rgba(250,248,243,0.3), transparent)' }}
                 />
             </div>

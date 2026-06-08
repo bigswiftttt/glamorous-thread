@@ -1,48 +1,37 @@
-const reasons = [
-    {
-        title: 'Bespoke Every Time',
-        description: 'Every garment is made from scratch to your exact measurements. Nothing off the rack, ever.',
-    },
-    {
-        title: 'Premium Fabrics',
-        description: 'We source only the finest materials — locally and internationally — for every piece we create.',
-    },
-    {
-        title: 'Your Vision First',
-        description: 'We listen before we design. Your personality, lifestyle and preferences guide every decision.',
-    },
-    {
-        title: 'Timely Delivery',
-        description: 'We respect your time. Every order comes with a clear timeline and real-time progress updates.',
-    },
-]
-
 export default function WhyUs() {
+    const reasons = [
+        {
+            title: 'Bespoke Every Time',
+            description: 'Every garment is made from scratch to your exact measurements. Nothing off the rack, ever.',
+        },
+        {
+            title: 'Premium Fabrics',
+            description: 'We source only the finest materials — locally and internationally — for every piece we create.',
+        },
+        {
+            title: 'Your Vision First',
+            description: 'We listen before we design. Your personality, lifestyle and preferences guide every decision.',
+        },
+        {
+            title: 'Timely Delivery',
+            description: 'We respect your time. Every order comes with a clear timeline and real-time progress updates.',
+        },
+    ]
+
     return (
-        <section
-            className="py-32 px-8 md:px-16"
-            style={{ backgroundColor: '#0B0B0B' }}
-        >
-            <div className="max-w-7xl mx-auto">
+        <section className="section" style={{ backgroundColor: '#0B0B0B' }}>
+            <div className="section-inner">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start">
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-
-                    {/* Left — heading */}
                     <div>
-                        <div className="flex items-center gap-4 mb-6">
-                            <div className="w-12 h-px" style={{ backgroundColor: '#C6A85A' }} />
-                            <span
-                                className="font-sans text-xs uppercase"
-                                style={{ letterSpacing: '0.25em', color: '#C6A85A' }}
-                            >
+                        <div className="eyebrow">
+                            <div className="gold-line" />
+                            <span className="text-label" style={{ color: '#C6A85A' }}>
                                 Why Glamorous Thread
                             </span>
                         </div>
 
-                        <h2
-                            className="font-serif font-light leading-tight mb-8"
-                            style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#FAF8F3' }}
-                        >
+                        <h2 className="text-heading" style={{ color: '#FAF8F3' }}>
                             Crafted With
                             <br />
                             <span className="italic" style={{ color: '#C6A85A' }}>
@@ -51,20 +40,18 @@ export default function WhyUs() {
                         </h2>
 
                         <p
-                            className="font-sans text-sm leading-relaxed mb-12 max-w-md"
-                            style={{ color: 'rgba(250,248,243,0.5)' }}
+                            className="text-body mt-6 mb-10"
+                            style={{ color: 'rgba(250,248,243,0.5)', maxWidth: '400px' }}
                         >
-                            We are not just a fashion brand. We are storytellers who use fabric,
-                            thread and craftsmanship to help you show up as the most beautiful
-                            version of yourself.
+                            We are not just a fashion brand. We are storytellers who use
+                            fabric, thread and craftsmanship to help you show up as the
+                            most beautiful version of yourself.
                         </p>
-
 
                         <a
                             href="/book"
-                            className="inline-flex items-center gap-3 font-sans text-xs uppercase"
+                            className="text-label inline-flex items-center gap-2"
                             style={{
-                                letterSpacing: '0.2em',
                                 color: '#C6A85A',
                                 borderBottom: '1px solid rgba(198,168,90,0.3)',
                                 paddingBottom: '4px',
@@ -72,7 +59,7 @@ export default function WhyUs() {
                         >
                             Start Your Journey
                             <svg
-                                className="w-4 h-4"
+                                className="w-3 h-3"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
@@ -87,28 +74,28 @@ export default function WhyUs() {
                         </a>
                     </div>
 
-                    {/* Right — reasons */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-px"
-                        style={{ backgroundColor: 'rgba(198,168,90,0.1)' }}
+                    <div
+                        style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(2, 1fr)',
+                            gap: '1px',
+                            backgroundColor: 'rgba(198,168,90,0.1)',
+                        }}
                     >
                         {reasons.map((reason, i) => (
                             <div
                                 key={i}
-                                className="p-8"
-                                style={{ backgroundColor: '#0B0B0B' }}
+                                style={{ backgroundColor: '#0B0B0B', padding: '1.5rem' }}
                             >
-                                <div
-                                    className="w-8 h-px mb-6"
-                                    style={{ backgroundColor: '#C6A85A' }}
-                                />
+                                <div className="gold-line" style={{ marginBottom: '1.25rem' }} />
                                 <h3
-                                    className="font-serif font-light text-xl mb-3"
-                                    style={{ color: '#FAF8F3' }}
+                                    className="text-subheading"
+                                    style={{ color: '#FAF8F3', marginBottom: '0.5rem' }}
                                 >
                                     {reason.title}
                                 </h3>
                                 <p
-                                    className="font-sans text-sm leading-relaxed"
+                                    className="text-body"
                                     style={{ color: 'rgba(250,248,243,0.4)' }}
                                 >
                                     {reason.description}
