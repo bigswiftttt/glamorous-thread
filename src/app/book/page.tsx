@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@/lib/supabase/client'
 
 const services = [
     'Bridal Couture',
@@ -109,18 +109,18 @@ export default function BookPage() {
                                 </a>
 
                                 <a href={`https://wa.me/2349024193118?text=Hi, I just booked a ${form.service} consultation for ${form.date} at ${form.time}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn-outline-dark"
-                >
-                                Confirm on WhatsApp
-                            </a>
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn-outline-dark"
+                                >
+                                    Confirm on WhatsApp
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-      </main >
-    )
+                </section>
+            </main >
+        )
     }
 
     return (

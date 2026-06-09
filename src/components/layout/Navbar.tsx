@@ -16,7 +16,7 @@ const dropdownLinks = [
   { label: 'Measurements', href: '/dashboard/measurements' },
   { label: 'Order Tracking', href: '/track' },
   { label: 'Testimonials', href: '/testimonials' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Contact Us', href: '/contact' },
 ]
 
 export default function Navbar() {
@@ -89,8 +89,8 @@ export default function Navbar() {
                 color: isActive(link.href)
                   ? '#C6A85A'
                   : lightMode
-                  ? 'rgba(17,17,17,0.6)'
-                  : 'rgba(250,248,243,0.7)',
+                    ? 'rgba(17,17,17,0.6)'
+                    : 'rgba(250,248,243,0.7)',
                 borderBottom: isActive(link.href)
                   ? '1px solid rgba(198,168,90,0.4)'
                   : '1px solid transparent',
