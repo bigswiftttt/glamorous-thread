@@ -1,15 +1,11 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
   title: 'Glamorous Thread — Sew and Set Trend',
-  description: 'Luxury bespoke fashion tailored to your identity. Bridal couture, native wear, corporate and event fashion.',
-  keywords: 'luxury fashion, bespoke tailoring, bridal couture, Lagos fashion designer',
-  openGraph: {
-    title: 'Glamorous Thread',
-    description: 'Luxury Fashion Tailored To Your Identity',
-    type: 'website',
-  },
+  description: 'Luxury bespoke fashion tailored to your identity.',
 }
 
 export default function RootLayout({
@@ -20,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-cream text-text font-sans">
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   )

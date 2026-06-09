@@ -1,4 +1,3 @@
-import Navbar from '@/components/layout/Navbar'
 import Hero from '@/components/home/Hero'
 import Services from '@/components/home/Services'
 import WhyUs from '@/components/home/WhyUs'
@@ -8,7 +7,6 @@ import ConsultationCTA from '@/components/home/ConsultationCTA'
 export default function Home() {
   return (
     <>
-      <Navbar />
       <Hero />
       <Services />
       <WhyUs />
