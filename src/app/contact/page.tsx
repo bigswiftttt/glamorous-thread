@@ -73,13 +73,13 @@ export default function ContactPage() {
                   {
                     label: 'WhatsApp',
                     value: '+234 XXX XXX XXXX',
-                    href: 'https://wa.me/234XXXXXXXXXX',
+                    href: 'https://wa.me/2349024193118',
                     note: 'Fastest response',
                   },
                   {
                     label: 'Email',
-                    value: 'hello@glamorousthread.com',
-                    href: 'mailto:hello@glamorousthread.com',
+                    value: 'consultglamorousthread@gmail.com',
+                    href: 'mailto:consultglamorousthread@gmail.com',
                     note: 'Response within 24hrs',
                   },
                   {
@@ -95,7 +95,7 @@ export default function ContactPage() {
                     note: 'By appointment only',
                   },
                 ].map((item) => (
-                  
+                  <a
                     key={item.label}
                     href={item.href}
                     target={item.href.startsWith('http') ? '_blank' : undefined}
@@ -124,8 +124,8 @@ export default function ContactPage() {
 
               {/* WhatsApp CTA */}
               <div className="mt-8">
-                
-                  href="https://wa.me/234XXXXXXXXXX"
+                <a
+                  href="https://wa.me/2349024193118"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
