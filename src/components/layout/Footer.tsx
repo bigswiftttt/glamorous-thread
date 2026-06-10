@@ -55,7 +55,7 @@ export default function Footer() {
                             {/* Social links */}
                             <div className="flex items-center gap-6">
                                 <a
-                                    href="https://instagram.com/glamorousthread"
+                                    href="https://www.instagram.com/glamorous.thread.1988?igsh=cGlnZHBwazB3bXps"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-label"
@@ -73,7 +73,7 @@ export default function Footer() {
                                     WhatsApp
                                 </a>
                                 <a
-                                    href="mailto:hello@glamorousthread.com"
+                                    href="mailto:consultglamorousthread@gmail.com"
                                     className="text-label"
                                     style={{ color: 'rgba(250,248,243,0.4)' }}
                                 >

@@ -84,8 +84,8 @@ export default function ContactPage() {
                   },
                   {
                     label: 'Instagram',
-                    value: '@glamorousthread',
-                    href: 'https://instagram.com/glamorousthread',
+                    value: '@glamorous.thread.1988',
+                    href: 'https://www.instagram.com/glamorous.thread.1988?igsh=cGlnZHBwazB3bXps',
                     note: 'Follow for updates',
                   },
                   {
