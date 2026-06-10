@@ -2,7 +2,7 @@
 
 @import "tailwindcss";
 
-@theme {
+:root {
   --color-gold: #C6A85A;
   --color-gold-light: #E6D3A3;
   --color-gold-dark: #A8893A;
@@ -96,13 +96,15 @@ a {
    Use .section on every <section>.
    Automatically less padding on mobile. */
 .section {
-  padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 5vw, 5rem);
+  padding: clamp(4rem, 10vw, 8rem) clamp(2rem, 6vw, 6rem);
 }
 
 .section-inner {
   max-width: 1280px;
   margin: 0 auto;
   width: 100%;
+  padding-left: clamp(1rem, 4vw, 2rem);
+  padding-right: clamp(1rem, 4vw, 2rem);
 }
 
 /* ─── Global gold divider ─── */
@@ -210,4 +212,9 @@ a {
 ::selection {
   background: #C6A85A;
   color: #0B0B0B;
+}
+
+/* Prevent content touching screen edges on mobile */
+.section-inner > * {
+  max-width: 100%;
 }
