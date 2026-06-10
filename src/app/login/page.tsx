@@ -6,161 +6,163 @@ import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 
 export default function LoginPage() {
-    const router = useRouter()
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState('')
-    const [form, setForm] = useState({ email: '', password: '' })
+  const router = useRouter()
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+  const [form, setForm] = useState({ email: '', password: '' })
 
-    function update(field: string, value: string) {
-        setForm((prev) => ({ ...prev, [field]: value }))
+  function update(field: string, value: string) {
+    setForm((prev) => ({ ...prev, [field]: value }))
+  }
+
+  async function handleLogin() {
+    setLoading(true)
+    setError('')
+
+    const supabase = createClient()
+    const { error } = await supabase.auth.signInWithPassword({
+      email: form.email,
+      password: form.password,
+    })
+
+    if (error) {
+      setError(error.message)
+      setLoading(false)
+      return
     }
 
-    async function handleLogin() {
-        setLoading(true)
-        setError('')
+    router.push('/dashboard')
+    router.refresh()
+  }
 
-        const supabase = createClient()
-        const { error } = await supabase.auth.signInWithPassword({
-            email: form.email,
-            password: form.password,
-        })
+  const inputStyle = {
+    width: '100%',
+    padding: '1rem',
+    border: '1px solid rgba(17,17,17,0.1)',
+    backgroundColor: '#FAF8F3',
+    fontFamily: 'Jost, sans-serif',
+    fontSize: '0.875rem',
+    color: '#111111',
+    outline: 'none',
+  }
 
-        if (error) {
-            setError(error.message)
-            setLoading(false)
-            return
-        }
-
-        router.push('/dashboard')
-        router.refresh()
-    }
-
-    const inputStyle = {
-        width: '100%',
-        padding: '1rem',
-        border: '1px solid rgba(17,17,17,0.1)',
+  return (
+    <main
+      style={{
         backgroundColor: '#FAF8F3',
-        fontFamily: 'Jost, sans-serif',
-        fontSize: '0.875rem',
-        color: '#111111',
-        outline: 'none',
-    }
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '2rem',
+      }}
+    >
+      <div style={{ width: '100%', maxWidth: '440px' }}>
 
-    return (
-        <main
-            style={{
-                backgroundColor: '#FAF8F3',
-                minHeight: '100vh',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '2rem',
-            }}
-        >
-            <div style={{ width: '100%', maxWidth: '440px' }}>
+        <Link href="/" className="inline-block mb-10">
+          <span
+            className="font-serif font-light block"
+            style={{ fontSize: '1.2rem', letterSpacing: '0.2em', color: '#0B0B0B' }}
+          >
+            GLAMOROUS
+          </span>
+          <span
+            className="font-serif font-light block"
+            style={{ fontSize: '1.2rem', letterSpacing: '0.2em', color: '#C6A85A' }}
+          >
+            THREAD
+          </span>
+        </Link>
 
-                {/* Logo */}
-                <Link href="/" className="inline-block mb-10">
-                    <span
-                        className="font-serif font-light block"
-                        style={{ fontSize: '1.2rem', letterSpacing: '0.2em', color: '#0B0B0B' }}
-                    >
-                        GLAMOROUS
-                    </span>
-                    <span
-                        className="font-serif font-light block"
-                        style={{ fontSize: '1.2rem', letterSpacing: '0.2em', color: '#C6A85A' }}
-                    >
-                        THREAD
-                    </span>
-                </Link>
+        <div className="eyebrow">
+          <div className="gold-line" />
+          <span className="text-label" style={{ color: '#C6A85A' }}>
+            Welcome Back
+          </span>
+        </div>
+        <h1 className="text-heading mb-8" style={{ color: '#0B0B0B' }}>
+          Sign In
+        </h1>
 
-                {/* Heading */}
-                <div className="eyebrow">
-                    <div className="gold-line" />
-                    <span className="text-label" style={{ color: '#C6A85A' }}>
-                        Welcome Back
-                    </span>
-                </div>
-                <h1 className="text-heading mb-8" style={{ color: '#0B0B0B' }}>
-                    Sign In
-                </h1>
+        <div className="flex flex-col gap-5">
+          <div>
+            <label className="text-label block mb-2" style={{ color: 'rgba(17,17,17,0.6)' }}>
+              Email Address
+            </label>
+            <input
+              type="email"
+              placeholder="your@email.com"
+              value={form.email}
+              onChange={(e) => update('email', e.target.value)}
+              style={inputStyle}
+            />
+          </div>
 
-                {/* Form */}
-                <div className="flex flex-col gap-5">
-                    <div>
-                        <label className="text-label block mb-2" style={{ color: 'rgba(17,17,17,0.6)' }}>
-                            Email Address
-                        </label>
-                        <input
-                            type="email"
-                            placeholder="your@email.com"
-                            value={form.email}
-                            onChange={(e) => update('email', e.target.value)}
-                            style={inputStyle}
-                        />
-                    </div>
-
-                    <div>
-                        <label className="text-label block mb-2" style={{ color: 'rgba(17,17,17,0.6)' }}>
-                            Password
-                        </label>
-                        <input
-                            type="password"
-                            placeholder="••••••••"
-                            value={form.password}
-                            onChange={(e) => update('password', e.target.value)}
-                            onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
-                            style={inputStyle}
-                        />
-                    </div>
-
-                    {error && (
-                        <p className="text-body" style={{ color: '#E53E3E' }}>
-                            {error}
-                        </p>
-                    )}
-
-                    <button
-                        onClick={handleLogin}
-                        disabled={loading || !form.email || !form.password}
-                        className="btn-primary"
-                        style={{
-                            opacity: loading || !form.email || !form.password ? 0.6 : 1,
-                            cursor: loading || !form.email || !form.password ? 'not-allowed' : 'pointer',
-                            width: '100%',
-                            justifyContent: 'center',
-                        }}
-                    >
-                        {loading ? 'Signing in...' : 'Sign In'}
-                    </button>
-                </div>
-
-                {/* Footer links */}
-                <div
-                    className="flex flex-col gap-3 mt-8 pt-8"
-                    style={{ borderTop: '1px solid rgba(198,168,90,0.2)' }}
-                >
-                    <p className="text-body" style={{ color: 'rgba(17,17,17,0.5)' }}>
-                        Don&apos;t have an account?{' '}
-                        <Link
-                            href="/signup"
-                            style={{ color: '#C6A85A', borderBottom: '1px solid rgba(198,168,90,0.3)' }}
-                        >
-                            Create one
-                        </Link>
-                    </p>
-                    <p className="text-body" style={{ color: 'rgba(17,17,17,0.5)' }}>
-                        <Link
-                            href="/"
-                            style={{ color: 'rgba(17,17,17,0.4)' }}
-                        >
-                            Back to website
-                        </Link>
-                    </p>
-                </div>
-
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label className="text-label" style={{ color: 'rgba(17,17,17,0.6)' }}>
+                Password
+              </label>
+              <Link
+                href="/forgot-password"
+                className="text-label"
+                style={{ color: '#C6A85A' }}
+              >
+                Forgot password?
+              </Link>
             </div>
-        </main>
-    )
+            <input
+              type="password"
+              placeholder="••••••••"
+              value={form.password}
+              onChange={(e) => update('password', e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
+              style={inputStyle}
+            />
+          </div>
+
+          {error && (
+            <p className="text-body" style={{ color: '#E53E3E' }}>
+              {error}
+            </p>
+          )}
+
+          <button
+            onClick={handleLogin}
+            disabled={loading || !form.email || !form.password}
+            className="btn-primary"
+            style={{
+              opacity: loading || !form.email || !form.password ? 0.6 : 1,
+              cursor: loading || !form.email || !form.password ? 'not-allowed' : 'pointer',
+              width: '100%',
+              justifyContent: 'center',
+            }}
+          >
+            {loading ? 'Signing in...' : 'Sign In'}
+          </button>
+        </div>
+
+        <div
+          className="flex flex-col gap-3 mt-8 pt-8"
+          style={{ borderTop: '1px solid rgba(198,168,90,0.2)' }}
+        >
+          <p className="text-body" style={{ color: 'rgba(17,17,17,0.5)' }}>
+            Don&apos;t have an account?{' '}
+            <Link
+              href="/signup"
+              style={{ color: '#C6A85A', borderBottom: '1px solid rgba(198,168,90,0.3)' }}
+            >
+              Create one
+            </Link>
+          </p>
+          <p className="text-body" style={{ color: 'rgba(17,17,17,0.5)' }}>
+            <Link href="/" style={{ color: 'rgba(17,17,17,0.4)' }}>
+              Back to website
+            </Link>
+          </p>
+        </div>
+
+      </div>
+    </main>
+  )
 }
